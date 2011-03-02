@@ -1,0 +1,6 @@
+Python scripts live here. Current projects are:
+
+Japanese Flashcards:
+
+Flashcards intended for japanese learning. 
+Uses a commandline interface to read vocabulary and kanji details in, and then processes this data to XML. The XML can then be converted to LaTeX, which is intended to create flashcards.
