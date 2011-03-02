@@ -1,0 +1,4 @@
+\begin{flashcard}[<voc_details>]{<vocab>}
+<english>
+\end{flashcard}
+

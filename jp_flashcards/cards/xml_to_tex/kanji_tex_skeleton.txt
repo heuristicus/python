@@ -1,0 +1,22 @@
+\begin{flashcard}{<kanji>}
+    \begin{tabular}{cc}
+      \begin{minipage}[b]{0.5\linewidth}\centering
+        \begin{tabular}{c}
+          <meanings>
+        \end{tabular}
+      \end{minipage}
+      \hspace{-1cm}
+      &\begin{minipage}[b]{0.5\linewidth}\centering
+        \fontsize{18pt}
+        \selectfont
+        \begin{tabular}{c}
+          <readings>
+        \end{tabular}
+      \end{minipage}
+      \vspace*{0.1cm}
+    \end{tabular}
+    \fontsize{12pt} \selectfont
+    \begin{tabular}{l}
+      <definitions>
+    \end{tabular}
+  \end{flashcard}
