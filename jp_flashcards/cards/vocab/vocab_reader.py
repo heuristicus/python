@@ -155,12 +155,12 @@ def def_to_xml(eng, jp, grp, adj):
             if part[3] != '':
                 okuri = SubElement(str_part, 'okurigana')
                 okuri.text = part[3].decode('utf-8')
-            if grp != '':
-                group = SubElement(japanese, 'group')
-                group.text = grp
-            if adj != '':
-                adj_ = SubElement(japanese, 'adj_type')
-                adj_.text = adj.decode('utf-8')
+        if grp != '':
+            group = SubElement(japanese, 'group')
+            group.text = grp
+        if adj != '':
+            adj_ = SubElement(japanese, 'adj_type')
+            adj_.text = adj.decode('utf-8')
         return def_root
     #print etree.tostring(def_root, pretty_print=True)
     
