@@ -57,11 +57,11 @@ def read_group():
         if chk:
             return grp
         else:
-            print '%s is not a valid group.'
+            print '%s is not a valid group.'%(grp)
             read_group()
 
 def check_grp(grp):
-    valid = ['I', 'II', 'III', '\xe3\x81\x99\xe3\x82\x8b', '1', '2', '3', 'suru']
+    valid = ['I', 'II', 'III', '\xe3\x81\x99\xe3\x82\x8b', '1', '2', '3', 'suru', '']
     if grp in valid:
         return True
     return False
