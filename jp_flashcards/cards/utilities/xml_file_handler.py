@@ -52,7 +52,7 @@ def save_file(root, filename):
 #    tree.write(filename, pretty_print=True)
     f = open(filename, 'w')
     s = tostring(root, pretty_print=True)
-    print s
+    #print s
     f.write(s)
     print 'XML tree saved to %s.' %(filename)
 

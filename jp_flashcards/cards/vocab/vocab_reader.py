@@ -19,8 +19,11 @@ def read_vocab():
             eng_def = read_eng()
             jp_def = furi_cre.get_list()
             group = read_group()
-            adj = read_adj()
-            xml_def = def_to_xml(eng_def,jp_def,group)
+            if group == '':
+                adj = read_adj()
+            else:
+                adj = ''
+            xml_def = def_to_xml(eng_def,jp_def,group, adj)
             XML_HAND.add_element(xml_def)
             print 'Definition received.'
         except KeyboardInterrupt:
@@ -50,7 +53,19 @@ def read_group():
         print 'Ok, exiting.'
         sys.exit(1)
     else:
-        return grp
+        chk = check_grp(grp)
+        if chk:
+            return grp
+        else:
+            print '%s is not a valid group.'
+            read_group()
+
+def check_grp(grp):
+    valid = ['I', 'II', 'III', '\xe3\x81\x99\xe3\x82\x8b', '1', '2', '3', 'suru']
+    if grp in valid:
+        return True
+    return False
+    
 
 def read_adj():
     """Reads an adjective from the commandline. Should be of a
@@ -94,7 +109,7 @@ def is_adj(adj):
     Arguments:
     - `adj`: Adjective to check
     """
-    valid = ['\xe3\x81\xae', '\xe3\x81\xaa', '\xe3\x81\x84', 'no', 'na', 'i']
+    valid = ['\xe3\x81\xae', '\xe3\x81\xaa', '\xe3\x81\x84', 'no', 'na', 'i', '']
     for val in valid:
         if adj == val:
             return True
@@ -118,8 +133,8 @@ def def_to_xml(eng, jp, grp, adj):
                 group = SubElement(japanese, 'group')
                 group.text = grp
             if adj != '':
-                adj = SubElement(japanese, 'adj_type')
-                adj.text = adj
+                adj_ = SubElement(japanese, 'adj_type')
+                adj_.text = adj.decode('utf-8')
             return def_root
     else:
         for part in jp:
@@ -144,8 +159,8 @@ def def_to_xml(eng, jp, grp, adj):
                 group = SubElement(japanese, 'group')
                 group.text = grp
             if adj != '':
-                adj = SubElement(japanese, 'adj_type')
-                adj.text = adj
+                adj_ = SubElement(japanese, 'adj_type')
+                adj_.text = adj.decode('utf-8')
         return def_root
     #print etree.tostring(def_root, pretty_print=True)
     
