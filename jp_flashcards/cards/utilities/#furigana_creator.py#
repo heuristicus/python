@@ -20,14 +20,13 @@ def get_list():
             out.append(make_comp(in_[0][i], in_[1][i]))
         return out
 
-def read_k_h(number=1):
+def read_k_h():
     """Reads a kanji and hiragana definition, and makes sure that they
     contain the same number of parts. Each part should start with a
     kanji, but this is not necessary. The string should be split such
     that each part only contains a single kanji, so that it is
     possible to determine the furigana."""
     jp_def = []
-    for i in range(number)
     k_skip = False
     kanji = raw_input('Enter the Japanese word, with kanji present. When the next character is a kanji, please enter a space and then continue. If you just want to enter hiragana, just press return.\n')
     if kanji == '':

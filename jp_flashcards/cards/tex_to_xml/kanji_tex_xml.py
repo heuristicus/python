@@ -57,9 +57,9 @@ def get_card_components(card):
     - `card`: A latex flashcard definition.
     """
     # Find the kanji for the flashcard
-    kanji = re.findall(r'rd}{.*}', card)
+    kanji = re.findall(r'}]{.*}', card)
     # Find the english definitions for the flashcard
-    eng_def = re.findall(r'bf{[a-zA-Z\s]*}', card)
+    eng_def = re.findall(r'bf{[a-zA-Z\s()]*}', card)
     # Find the katakana and hiragana readings for the flashcard
     readings = re.findall(r'\\selectfont\n\s*\\begin{tabular}{c}.*\\end{tabular}\n\s*\\end{minipage}', card, re.DOTALL)
     # Find the compound definitions
@@ -85,12 +85,12 @@ def extract_data(component_list):
     return [kanji, english, readings, compounds]
 
 def extract_kanji(kanji_re):
-    """Extracts the kanji from a regex in the form r'rd}{.*}'
+    """Extracts the kanji from a regex in the form r'}]{.*}'
     
     Arguments:
     - `kanji_re`: String result from a regex.
     """
-    return kanji_re[0][4:-1]
+    return kanji_re[0][3:-1]
    
 def extract_english(eng_defs):
     """Extracts the english definitions of a kanji from the results of
@@ -101,6 +101,7 @@ def extract_english(eng_defs):
     """
     ext = []
     for def_ in eng_defs:
+        print def_
         ext.append(def_[3:-1])
     return ext
 

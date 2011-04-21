@@ -4,7 +4,7 @@ takes the output from that script and constructs an xml file from it.
 """
 
 from lxml import etree
-import alph_checker
+import utilities.alph_checker as alph_checker
 import re
 
 out_file = ''

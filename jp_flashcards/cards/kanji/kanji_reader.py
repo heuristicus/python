@@ -28,6 +28,8 @@ def read_data():
     else:
         readings = kun + ' ' + on
     # This is the part that does the most work.
+    print 'Enter compounds for the kanji.'
+    #####ONLY READS ONE DEFINITION - FIX THIS#####
     k_comp = furi_cre.get_list()
     definitions = []
     definitions.extend([kanji, meanings, readings, k_comp])
@@ -60,6 +62,7 @@ def main():
     while 1:
         k_list = read_data() # read data from command line and return a string
         # Converts the list into an xml snippet and writes it to a file
+        #####DOES NOT WORK#####
         k_xml.write_xml(k_list, out_file)
         cont = cont_dialogue() # ask whether to repeat for a different kanji
         if cont is False: break
